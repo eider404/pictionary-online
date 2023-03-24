@@ -12,10 +12,10 @@ app.use(express.static('public'));
 
 
 io.on('connection', (socket) => {
-  console.log(`El cliente ${socket.id} se a conectado`);
+  console.log(`El cliente ${socket.id} se ha conectado :)`);
 
   socket.on('disconnect', () => {
-    console.log('Un cliente se ha desconectado');
+    console.log(`El cliente ${socket.id} se ha desconectado :(`);
   });
 });
 
