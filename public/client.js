@@ -17,10 +17,16 @@ socket.on('error', (error) => {
 
 
 
+//Cuando un cliente externo envie datos a coordinatePoint este emitira ESTE evento para que cliente pueda ver los datos del cliente externo
 socket.on('dibujarSlider', (x , y, color) => {
-    console.log(x, y, color);
+    dibujar(x, y, color);
 });
 
+//Cuando un cliente externo envie datos a coordinatePoint este emitira ESTE evento para que cliente pueda ver los datos del cliente externo
 socket.on('dibujarPoint', (x , y, color) => {
-    console.log(x, y, color);
+    dibujarPunto(x, y, color);
+
+    //regresa a undefined para que el proximo click no tenga los datos anteriores, y no se genere una linea extrania entre en antiguo dato y el nuevo click
+    initialX = undefined;
+    initialX = undefined;
 });
