@@ -14,3 +14,13 @@ socket.on('disconnect', () => {
 socket.on('error', (error) => {
     console.log(`Error en la conexión: ${error}`);
 });
+
+
+
+socket.on('dibujarSlider', (x , y, color) => {
+    console.log(x, y, color);
+});
+
+socket.on('dibujarPoint', (x , y, color) => {
+    console.log(x, y, color);
+});

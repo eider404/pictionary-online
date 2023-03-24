@@ -36,11 +36,13 @@ const mouseDown = (evt) =>{
   initialY = evt.offsetY;
 
   dibujarPunto(evt.offsetX, evt.offsetY, colorElegido );
+  socket.emit('coordinateSlider', evt.offsetX, evt.offsetY, colorElegido);
 
   mainCanvas.addEventListener("mousemove", mouseMoving);
 }
 
 const mouseMoving = (evt) => {
+  socket.emit('coordinatePoint', evt.offsetX, evt.offsetY, colorElegido);
   dibujar(evt.offsetX, evt.offsetY, colorElegido);  
 }
   
