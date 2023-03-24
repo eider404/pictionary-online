@@ -15,11 +15,18 @@ io.on('connection', (socket) => {
   console.log(`El cliente ${socket.id} se ha conectado :)`);
 
   //recibe las coordenadas del plano a pintar y un color
+  //este evento es para recibir las coordenadas (Al mover el puntero) emitidas por un cliente y este evento se lo envia a los otros clientes
   socket.on('coordinateSlider', (x, y, color) => {
     /* console.log(`${x} / ${y} / ${color}`); */
-    io.emit('dibujar', x , y , color);  
+    io.emit('dibujarSlider', x , y , color);  
   });
 
+  
+  //este evento es para recibir las coordenadas (Al hacer Click) emitidas por un cliente y este evento se lo envia a los otros clientes
+  socket.on('coordinatePoint', (x, y, color) => {
+    /* console.log(`${x} / ${y} / ${color}`); */
+    io.emit('dibujarPoint', x , y, color);  
+  });
 
 
   socket.on('disconnect', () => {
