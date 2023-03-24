@@ -6,9 +6,7 @@ const server = http.createServer(app);
 
 
 
-app.get('/', (req, res) => {
-    console.log("Hi")
-})
+app.use(express.static('public'));
 
 
 server.listen(3000, () => {
