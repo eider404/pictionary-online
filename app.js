@@ -7,6 +7,8 @@ const server = http.createServer(app);
 const socketio = require('socket.io');
 const io = socketio(server);
 
+const router = require('./src/routes');
+
 
 app.use(express.static('public'));
 
@@ -33,6 +35,8 @@ io.on('connection', (socket) => {
     console.log(`El cliente ${socket.id} se ha desconectado :(`);
   });
 });
+
+app.use('/',router);
 
 
 server.listen(3000, () => {
