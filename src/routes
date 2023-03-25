@@ -2,17 +2,34 @@ const {Router} = require("express")
 const routes = Router()
 
 
-let animal;
+let animal = {
+    name: "lion"
+};
 
 routes.post('/nuevo-animal',(req, res)=>{
     animal = req.body
 
     if(!animal.name){
-        res.status(401).json({data: animal, messaje: "Todos los campos son nesesarios"})
+        res.status(401).json({data: animal, messaje: "Campos son obligatorios"})
     }
 
     res.status(200).json({data: animal, messaje: "animal cambiado"})
 });
+
+
+routes.post('/verificar-animal',(req, res)=>{
+    const word = req.body;
+    
+    if(!word.name){
+        return res.status(401).json({data: word, messaje: "Campos son obligatorios"})
+    }
+
+    if(word.name == animal.name){
+        return res.status(200).json({data: word.name, messaje: "Correcto"})
+    }else{
+        return res.status(401).json({data: word.name, messaje: "Incorrecto"})
+    }
+})
 
 
 
