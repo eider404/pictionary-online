@@ -1,8 +1,17 @@
 const {Router} = require("express")
 const routes = Router()
 
+const animales = require("./animales")
 
 let animal = "Abeja";
+
+
+routes.get('/random-animal',(req, res)=>{
+    const numeroAleatorio = Math.floor(Math.random() * 87);
+    animal = animales[numeroAleatorio-1]; //-1 pora que no sea 87(no existe el animal 87) y para que utilize el array [0]
+
+    res.status(200).json({data: animal, messaje: "animal cambiado de forma random"})
+});
 
 routes.post('/nuevo-animal',(req, res)=>{
     newAnimal = req.body
