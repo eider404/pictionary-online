@@ -33,7 +33,8 @@ routes.post('/verificar-animal',(req, res)=>{
         return res.status(401).json({data: word, messaje: "Campos son obligatorios"})
     }
 
-    if(word.name == animal){
+    //comprobara en mayuscyla, asi no importa si lo escriba en mayusculas o minusculas
+    if(word.name.toUpperCase() == animal.toUpperCase()){
         return res.status(200).json({data: word.name, messaje: "Correcto"})
     }else{
         return res.status(401).json({data: word.name, messaje: "Incorrecto"})
