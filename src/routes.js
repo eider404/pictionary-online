@@ -3,7 +3,7 @@ const routes = Router()
 
 const animales = require("./animales")
 
-let animal = "Abeja";
+let animal = "abeja";
 
 
 routes.get('/random-animal',(req, res)=>{
@@ -14,11 +14,13 @@ routes.get('/random-animal',(req, res)=>{
 });
 
 routes.post('/nuevo-animal',(req, res)=>{
-    newAnimal = req.body
+    let newAnimal = req.body
 
     if(!newAnimal.name){
         res.status(401).json({data: newAnimal, messaje: "Campos son obligatorios"})
     }
+    
+    animal = newAnimal.name
 
     res.status(200).json({data: newAnimal, messaje: "animal cambiado"})
 });
