@@ -7,8 +7,8 @@ let animal = "abeja";
 
 
 routes.get('/random-animal',(req, res)=>{
-    const numeroAleatorio = Math.floor(Math.random() * 87);
-    animal = animales[numeroAleatorio-1]; //-1 pora que no sea 87(no existe el animal 87) y para que utilize el array [0]
+    const numeroAleatorio = Math.floor(Math.random() * 86);
+    animal = animales[numeroAleatorio];
 
     res.status(200).json({data: animal, messaje: "animal cambiado de forma random"})
 });
