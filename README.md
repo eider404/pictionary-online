@@ -1,4 +1,5 @@
 # Pictionary Online 🎨 🖋
+### 💥 [Ver pagina](https://pictionary-online.fly.dev/ "VER PAGINA") 💥
 
 Este proyecto es una versión en línea del popular juego de mesa Pictionary. Utiliza la biblioteca de Node.js socket.io para permitir que varios usuarios jueguen simultáneamente desde diferentes dispositivos.
 
@@ -22,8 +23,9 @@ Los jugadores pueden enviar sus respuestas a través de un formulario y al verif
 1. Clonar este repositorio en su máquina local.
 2. Instalar las dependencias con el comando npm install.
 3. Ejecutar el servidor con el comando:
-	 ```javascript
+```javascript
 node app.js
 ```
+
 4. Acceder a la aplicación a través del navegador web en http://localhost:3000.
 
